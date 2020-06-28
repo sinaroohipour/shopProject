@@ -32,8 +32,8 @@ class Register:
                 data = json.load(json_file)
                 users = data['users']
                 users.append(obj)
-            with open(Register.json_file_path, 'w') as f:
-                json.dump(data, f, indent=2)
+            with open(Register.json_file_path, 'w') as file:
+                json.dump(data, file, indent=2)
         else:
             data = {}
             data['users'] = []

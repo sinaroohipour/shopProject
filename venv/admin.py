@@ -3,6 +3,7 @@ import os.path
 from subprocess import call
 import hashlib
 
+
 class Admin:
     txt_one = 'username : '
     txt_two = 'password : '
@@ -31,8 +32,7 @@ if os.path.exists(Admin.json_file_path):
 else:
     hash_object = hashlib.md5('admin'.encode())
     password = hash_object.hexdigest()
-    data = {}
-    data['admins'] = []
+    data = {'admins': []}
     data['admins'].append({
         "username": 'admin',
         "password": password
@@ -41,12 +41,15 @@ else:
     with open(Admin.json_file_path, 'a+') as outfile:
         json.dump(data, outfile)
 
-print('\nAdmin Side\n')
-username = input('{:^18}'.format(Admin.txt_one))
-password = input('{:^18}'.format(Admin.txt_two))
-request = Admin(username, password)
-if request.check_info(username, password):
-    print('yeees')
-else:
-    print('\nError: Something wrong!!')
-    call(["python", "home.py"])
+# print('\nAdmin Side\n')
+# username = input('{:^18}'.format(Admin.txt_one))
+# password = input('{:^18}'.format(Admin.txt_two))
+# request = Admin(username, password)
+# if request.check_info(username, password):
+#     print('\nLet\'s go')
+#     call(["python", "admin_hub.py"])
+# else:
+#     print('\nError: Something wrong!!')
+#     call(["python", "home.py"])
+
+call(["python", "admin_hub.py"])
