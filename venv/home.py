@@ -13,7 +13,7 @@ print('{:^18}'.format(log))
 print('{:^18}'.format(admin))
 print('{:^18}'.format(exit))
 
-mentor = input('{:^22}'.format('wich one ? '))
+mentor = input('{:^22}'.format('witch one ? '))
 if mentor == "1":
     call(["python", "register.py"])
 elif mentor == "2":

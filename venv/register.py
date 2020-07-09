@@ -4,6 +4,7 @@ from subprocess import call
 import hashlib
 
 class Register:
+
     txt_one = 'username : '
     txt_two = 'password : '
     json_file_path = './DataBase/users.json'
@@ -18,10 +19,12 @@ class Register:
                 if username == u['username']:
                     return 0
             return 1
+
     def hashing(self,password):
         hash_object = hashlib.md5(password.encode())
         password = hash_object.hexdigest()
         return password
+
     def register_handler(self, username, password):
         obj = {
             "username": username,
@@ -35,8 +38,7 @@ class Register:
             with open(Register.json_file_path, 'w') as f:
                 json.dump(data, f, indent=2)
         else:
-            data = {}
-            data['users'] = []
+            data = {'users': []}
             data['users'].append(obj)
             json_object = json.dumps(data, indent=2)
             with open(Register.json_file_path, 'a+') as outfile:

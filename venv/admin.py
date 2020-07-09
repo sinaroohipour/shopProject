@@ -46,7 +46,7 @@ username = input('{:^18}'.format(Admin.txt_one))
 password = input('{:^18}'.format(Admin.txt_two))
 request = Admin(username, password)
 if request.check_info(username, password):
-    print('yeees')
+    call(["python", "Admin_hub.py"])
 else:
     print('\nError: Something wrong!!')
     call(["python", "home.py"])
